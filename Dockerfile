@@ -1,0 +1,16 @@
+FROM docker.elastic.co/logstash/logstash:5.6.2
+RUN rm -f /usr/share/logstash/pipeline/logstash.conf
+ADD pipeline/ /usr/share/logstash/pipeline/
+ADD config/ /usr/share/logstash/config/
+ENV ELASTICSEARCH_HOST="elasticsearch" \
+    ELASTICSEARCH_PORT="9200" \
+    ELASTICSEARCH_USER="elastic" \
+    ELASTICSEARCH_PASSWORD="changeme" \
+    REDIS_HOST="redis" \
+    REDIS_PORT="6379" \
+    REDIS_PASSWORD="password" \
+    REDIS_DB=0 \
+    REDIS_KEY="logs" \
+    REDIS_DATA_TYPE="list"
+RUN logstash-plugin install logstash-input-redis
+
