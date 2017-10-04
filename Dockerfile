@@ -5,6 +5,7 @@ ENV ELASTICSEARCH_HOST="elasticsearch" \
     ELASTICSEARCH_PORT="9200" \
     ELASTICSEARCH_USER="elastic" \
     ELASTICSEARCH_PASSWORD="changeme" \
+    ELASTICSEARCH_INDEX="logstash-%{+YYYY.MM.dd}" \
     REDIS_HOST="redis" \
     REDIS_PORT="6379" \
     REDIS_PASSWORD="password" \
