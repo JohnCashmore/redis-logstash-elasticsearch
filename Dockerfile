@@ -1,4 +1,4 @@
-FROM docker.elastic.co/logstash/logstash:6.2.3
+FROM docker.elastic.co/logstash/logstash:6.5.4
 RUN rm -f /usr/share/logstash/pipeline/logstash.conf
 ADD pipeline/ /usr/share/logstash/pipeline/
 ENV ELASTICSEARCH_HOST="elasticsearch" \
